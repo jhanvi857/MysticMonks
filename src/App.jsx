@@ -7,6 +7,7 @@ import Signup from './SignUp';
 import Homepage from './Homepage';
 import Monasteries from './Monasteries';
 import Footer from './Footer';
+import MapView from './MapView';
 function App() {
   return (
     <>
@@ -16,6 +17,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/monasteries" element={<Monasteries />} />
+            <Route path="/map" element={<MapView />} />
             {/* <Route path="/signup" element={<Signup />} /> */}
           </Routes>
       {/* <CTA/>

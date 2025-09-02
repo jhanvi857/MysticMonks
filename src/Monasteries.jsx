@@ -133,8 +133,8 @@
 import React from "react";
 import { MapPin, PlayCircle } from "lucide-react";
 import Narration from "./Narration";
-
-const monasteriesData = [
+import { Link } from "react-router-dom";
+export const monasteriesData = [
   {
     id: 1,
     name: "Pemayangtse Monastery",
@@ -271,12 +271,13 @@ export default function Monasteries() {
                 <div className="flex gap-4 mt-4">
                   {/* View on Map */}
                   {item.coords && (
-                    <a
-                      href={`/map?lat=${item.coords.lat}&lng=${item.coords.lng}`}
-                      className="flex items-center gap-2 px-4 py-2 border border-blue-600 text-blue-500 rounded-lg shadow hover:bg-blue-700 hover:text-white"
-                    >
-                      <MapPin size={18} /> View on Map
-                    </a>
+                    <Link
+  to={`/map?lat=${item.coords.lat}&lng=${item.coords.lng}&name=${encodeURIComponent(item.name)}`}
+  className="flex items-center gap-2 px-4 py-2 border border-blue-600 text-blue-500 rounded-lg shadow hover:bg-blue-700 hover:text-white"
+>
+  <MapPin size={18} /> View on Map
+</Link>
+
                   )}
 
                   {/* 360 Tour */}

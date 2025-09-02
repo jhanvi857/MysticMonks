@@ -1,6 +1,6 @@
 export default function Login() {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-white">
+    <div className="flex items-center justify-center min-h-screen bg-white/20">
       <div className="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md">
         <div className="px-6 py-4">
           <h3 className="mt-3 text-xl font-medium text-center text-gray-600">
@@ -38,7 +38,7 @@ export default function Login() {
                 Forget Password?
               </a>
 
-              <button className="px-6 py-2 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+              <button className="px-6 py-2 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-yellow-500 rounded-lg hover:bg-orange-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
                 Sign In
               </button>
             </div>
@@ -52,7 +52,7 @@ export default function Login() {
 
           <a
             href="#"
-            className="mx-2 text-sm font-bold text-blue-500 hover:underline"
+            className="mx-2 text-sm font-bold text-yellow-500 hover:underline"
           >
             Register
           </a>

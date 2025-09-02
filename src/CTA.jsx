@@ -74,6 +74,12 @@ export default function CTA() {
             Explore Virtual Tour
             </Link>
             <Link
+              to="/map"
+              className="px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-black font-semibold rounded-full shadow-lg transition transform hover:scale-105"
+            >
+            Explore through Map
+            </Link>
+            <Link
               to="/monasteries"
               className="px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-black font-semibold rounded-full shadow-lg transition transform hover:scale-105"
             >
@@ -83,16 +89,18 @@ export default function CTA() {
               to="/events"
               className="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-full shadow-lg transition transform hover:scale-105"
             >
-              📅 View Events
+              View Events
             </Link>
           </div>
         </div>
       </section>
       <section className="bg-black/10">
-        <ImageSlider/>
+        {/* <ImageSlider/> */}
       </section>
       {/* Features Section */}
-      <section className="py-16 bg-fixed flex justify-center items-center flex-col bg-cover" style={{backgroundImage:"url('https://www.esikkimtourism.in/wp-content/uploads/2019/04/namchimay.jpg')"}}>
+      <section className="py-16 bg-fixed flex justify-center items-center flex-col bg-cover" 
+      style={{backgroundImage:"url('https://www.esikkimtourism.in/wp-content/uploads/2019/04/namchimay.jpg')"}}
+      >
         <h2 className="text-4xl font-bold text-center mb-12 text-white">
         Key Features
         </h2>
@@ -164,12 +172,15 @@ export default function CTA() {
       </section> */}
 
       {/* CTA Section */}
-      <section className="py-20 text-center min-h-screen bg-cover bg-fixed flex flex-col justify-center items-center" style={{backgroundImage:"url('https://cdn.kimkim.com/files/a/images/369b17fe4ac0c1701dde076d93e920aa00f43305/original-c6ddf7b171fa552a987004d4c7d6988c.jpg')"}}>
-        <div className="flex justify-center flex-col items-center bg-white m-2 p-8 text-orange-400 rounded-2xl">
+      <section className="py-20 text-center min-h-screen bg-cover bg-fixed flex flex-col justify-center items-center bg-gradient-to-br from-yellow-500 to bg-orange-500" 
+      // style={{backgroundImage:"url('https://cdn.kimkim.com/files/a/images/369b17fe4ac0c1701dde076d93e920aa00f43305/original-c6ddf7b171fa552a987004d4c7d6988c.jpg')"}}
+      style={{backgroundImage:"url('https://i.pinimg.com/1200x/b5/02/3b/b5023be87fa1804a5bcc0c4a16b9e55b.jpg')"}}
+      >
+        <div className="flex justify-center flex-col items-center m-2 p-8 text-white rounded-2xl">
           <h2 className="text-4xl font-bold mb-4 ">
           Start Your Spiritual Journey Today
         </h2>
-        <p className="text-lg max-w-2xl mx-auto mb-8 text-orange-300">
+        <p className="text-lg max-w-2xl mx-auto mb-8 text-orange-50">
           Discover monasteries, explore culture, and experience Sikkim like
           never before.
         </p>

@@ -2,7 +2,8 @@ import { MapPin, Mail, Phone, Instagram, Facebook, Twitter } from "lucide-react"
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white">
+    <footer className="bg-gradient-to-r from-gray-900 via-gray-800 to-black
+ text-white">
       <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
         
         {/* Logo / About */}
