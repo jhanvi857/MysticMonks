@@ -17,7 +17,24 @@ export default function EventsTab() {
     const options = { year: "numeric", month: "long", day: "numeric" };
     return new Date(dateString).toLocaleDateString("en-IN", options);
   };
+  const getGoogleCalendarLink = (event) => {
+    const startDate = new Date(event.start_date);
+    const endDate = event.end_date ? new Date(event.end_date) : startDate;
 
+    const formatDate = (date) =>
+      date.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
+
+    const baseUrl = "https://www.google.com/calendar/render";
+    const params = new URLSearchParams({
+      action: "TEMPLATE",
+      text: event.name,
+      details: event.description || "Event in Sikkim",
+      location: event.monastery || "Sikkim",
+      dates: `${formatDate(startDate)}/${formatDate(endDate)}`,
+    });
+
+    return `${baseUrl}?${params.toString()}`;
+  };
   return (
     <div className="p-6 space-y-6 py-24">
       {/* Global Calendar */}
@@ -47,9 +64,17 @@ export default function EventsTab() {
                 <p className="text-gray-500 text-sm mt-2">
                   {event.description || "No description available"}
                 </p>
-                <button className="mt-3 px-4 py-2 bg-orange-600 text-white rounded-xl hover:bg-orange-700 flex items-center gap-2">
+                {/* <button className="mt-3 px-4 py-2 bg-orange-600 text-white rounded-xl hover:bg-orange-700 flex items-center gap-2">
                   <Clock size={16} /> Add to Calendar
-                </button>
+                </button> */}
+                <a
+                    href={getGoogleCalendarLink(event)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-3 px-4 py-2 bg-orange-600 text-white rounded-xl hover:bg-orange-700 flex items-center justify-center gap-2"
+                  >
+                    <Calendar size={16} /> Add to calendar
+                  </a>
               </div>
             ))}
           </div>
