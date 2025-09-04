@@ -3,6 +3,7 @@ const pg = require("pg");
 const cors = require("cors");
 const pool = require("./db");
 const app = express();
+const events = require("./routes/events");
 app.use(cors());
 app.use(express.json());
 app.get("/monasteries",async(req,res)=>{
@@ -23,4 +24,5 @@ app.get("/monasteries/:id", async (req, res) => {
     res.status(500).json({ error: "DB error" });
   }
 });
+app.use("/events",events);
 app.listen(5000,()=>console.log("server is running on localhost 5000.."));

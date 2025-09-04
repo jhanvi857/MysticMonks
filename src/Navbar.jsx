@@ -7,6 +7,8 @@ export default function Navbar() {
       <div className="space-x-6">
         <Link to="/" className="hover:text-yellow-400">Home</Link>
         <Link to="/" className="hover:text-yellow-400">About Us</Link>
+        <Link to="/travel-tourism" className="hover:text-yellow-400">Transport & tourism</Link>
+        <Link to="/hotels" className="hover:text-yellow-400">Nearby Hotels</Link>
         <Link to="/login" className="hover:text-yellow-400">Login</Link>
         <Link to="/signup" className="hover:text-yellow-400">Signup</Link>
       </div>
