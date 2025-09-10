@@ -92,7 +92,7 @@ export default function TravelPlanner() {
                     key={i}
                     className="bg-gray-50 rounded-lg p-2 flex justify-between items-center"
                   >
-                    <span>{h.name}</span>
+                    <a href="#" className="block">{h.name}</a>
                     <span className="text-gray-600 text-sm">{h.price}</span>
                   </li>
                 ))}

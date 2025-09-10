@@ -1,23 +1,39 @@
 export default function Narration({ text }) {
-  const speak = (lang) => {
-    if (window.responsiveVoice) {
-      let voice;
-      switch (lang) {
-        case "en":
-          voice = "UK English Female";
-          break;
-        case "hi":
-          voice = "Hindi Female";
-          break;
-        case "ne":
-          voice = "Nepali Female"; 
-          break;
-        default:
-          voice = "UK English Female";
-      }
-      window.responsiveVoice.speak(text, voice);
-    } else {
-      alert("Voice engine not loaded yet. Try again in a second!");
+  const languageMap = {
+    en: "en",
+    hi: "hi",
+    ne: "ne",
+  };
+
+  const speak = async (langCode) => {
+    const targetLang = languageMap[langCode] || "en";
+
+    try {
+      const response = await fetch("http://localhost:5000/translate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          text: text,
+          targetLang: targetLang,
+        }),
+      });
+
+      const data = await response.json();
+      const translatedText = data.translatedText;
+
+      const utterance = new SpeechSynthesisUtterance(translatedText);
+      
+      const langCodeMap = {
+        en: "en-US",
+        hi: "hi-IN",
+        ne: "ne-NP",
+      };
+      utterance.lang = langCodeMap[langCode] || "en-US";
+      
+      window.speechSynthesis.speak(utterance);
+    } catch (error) {
+      console.error("Translation or speech failed:", error);
+      alert("Unable to translate or speak at the moment.");
     }
   };
 

@@ -68,7 +68,7 @@ export default function CTA() {
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
-              to="/tours"
+              to="/tour"
               className="px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-black font-semibold rounded-full shadow-lg transition transform hover:scale-105"
             >
             Explore Virtual Tour
@@ -176,18 +176,18 @@ export default function CTA() {
       // style={{backgroundImage:"url('https://cdn.kimkim.com/files/a/images/369b17fe4ac0c1701dde076d93e920aa00f43305/original-c6ddf7b171fa552a987004d4c7d6988c.jpg')"}}
       style={{backgroundImage:"url('https://i.pinimg.com/1200x/b5/02/3b/b5023be87fa1804a5bcc0c4a16b9e55b.jpg')"}}
       >
-        <div className="flex justify-center flex-col items-center m-2 p-8 text-white rounded-2xl">
+        <div className="flex justify-center flex-col items-center m-2 p-8 text-orange-500 rounded-2xl bg-white">
           <h2 className="text-4xl font-bold mb-4 ">
           Start Your Spiritual Journey Today
         </h2>
-        <p className="text-lg max-w-2xl mx-auto mb-8 text-orange-50">
+        <p className="text-lg max-w-2xl mx-auto mb-8 text-orange-400">
           Discover monasteries, explore culture, and experience Sikkim like
           never before.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <Link
             to="/login"
-            className="px-6 py-3 bg-white text-yellow-600 font-semibold rounded-full shadow-lg hover:scale-105 transition"
+            className="px-6 py-3 bg-white text-orange-600 font-semibold rounded-full shadow-lg hover:scale-105 transition"
           >
             Login
           </Link>

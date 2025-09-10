@@ -24,5 +24,27 @@ app.get("/monasteries/:id", async (req, res) => {
     res.status(500).json({ error: "DB error" });
   }
 });
+app.post("/translate", async (req, res) => {
+  const { text, targetLang } = req.body;
+
+  try {
+    const response = await fetch('https://libretranslate.de/translate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        q: text,
+        source: 'en',
+        target: targetLang,
+        format: 'text',
+      }),
+    });
+
+    const data = await response.json();
+    res.json({ translatedText: data.translatedText });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Translation failed' });
+  }
+});
 app.use("/events",events);
 app.listen(5000,()=>console.log("server is running on localhost 5000.."));

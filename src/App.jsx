@@ -12,11 +12,14 @@ import TourismTab from './TourismTab';
 import EventsTab from './EventsTab';
 import HotelsPage from './HotelsPage';
 import TravelPlanner from './TravelPlanner';
+import PanoramaViewer from './VirtualTour';
 function App() {
   return (
     <>
     <Routes>
             <Route path="/" element={<CTA />} />
+            <Route path="/tour" element={<PanoramaViewer />} />
+            <Route path="/tour/:name" element={<PanoramaViewer />} />
             {/* <Route path="/home" element={<Homepage />} /> */}
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
