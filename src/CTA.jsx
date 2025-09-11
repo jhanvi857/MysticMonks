@@ -59,14 +59,14 @@ export default function CTA() {
       >
         <div className="absolute inset-0 bg-black/60"></div>
         <div className="relative z-10 text-center px-6">
-          <h1 className="text-5xl md:text-6xl font-extrabold text-white drop-shadow-lg">
+          <h1 className="text-5xl md:text-6xl font-extrabold text-white drop-shadow-lg" data-aos="fade-down">
             Monastery360
           </h1>
-          <p className="mt-4 text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
+          <p className="mt-4 text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto leading-relaxed" data-aos="fade-up">
             Explore Sikkim’s Spiritual Heritage – Immersive Virtual Tours,
             Cultural Archives, and Smart Travel Experiences.
           </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
+          <div className="mt-8 flex flex-wrap justify-center gap-4" data-aos="fade-up">
             <Link
               to="/tour"
               className="px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-black font-semibold rounded-full shadow-lg transition transform hover:scale-105"
@@ -116,7 +116,7 @@ export default function CTA() {
             <div
               key={idx}
               className="p-6 bg-white rounded-2xl shadow-md hover:shadow-xl transition transform hover:scale-105 text-center"
-            >
+              data-aos="fade-up">
               <feature.icon className="w-12 h-12 mx-auto text-blue-500 mb-4" />
               <h3 className="text-xl font-semibold">{feature.title}</h3>
               <p className="mt-2 text-gray-600">{feature.desc}</p>
@@ -176,7 +176,7 @@ export default function CTA() {
       // style={{backgroundImage:"url('https://cdn.kimkim.com/files/a/images/369b17fe4ac0c1701dde076d93e920aa00f43305/original-c6ddf7b171fa552a987004d4c7d6988c.jpg')"}}
       style={{backgroundImage:"url('https://i.pinimg.com/1200x/b5/02/3b/b5023be87fa1804a5bcc0c4a16b9e55b.jpg')"}}
       >
-        <div className="flex justify-center flex-col items-center m-2 p-8 text-orange-500 rounded-2xl bg-white">
+        <div className="flex justify-center flex-col items-center m-2 p-8 text-orange-500 rounded-2xl bg-white" data-aos="fade-up">
           <h2 className="text-4xl font-bold mb-4 ">
           Start Your Spiritual Journey Today
         </h2>

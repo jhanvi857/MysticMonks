@@ -1,6 +1,9 @@
 import './App.css'
 import { Routes, Route } from "react-router-dom";
+import { useEffect } from 'react';
 import Navbar from './Navbar';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import CTA from './CTA'
 import Login from './Login';
 import Signup from './SignUp';
@@ -14,6 +17,13 @@ import HotelsPage from './HotelsPage';
 import TravelPlanner from './TravelPlanner';
 import PanoramaViewer from './VirtualTour';
 function App() {
+  useEffect(() => {
+  AOS.init({
+    duration: 800,     // animation duration
+    once: true,        // only animate once
+    easing: 'ease-out',
+  });
+}, []);
   return (
     <>
     <Routes>

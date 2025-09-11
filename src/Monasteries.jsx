@@ -109,7 +109,7 @@ export default function Monasteries() {
             "url('https://www.esikkimtourism.in/wp-content/uploads/2018/10/climate-bnnr.jpg')",
         }}
       >
-        <h1 className="text-4xl md:text-5xl font-bold text-white bg-black/50 px-6 py-3 rounded-lg">
+        <h1 className="text-4xl md:text-5xl font-bold text-white bg-black/50 px-6 py-3 rounded-lg" data-aos="fade-down">
           Explore Monasteries of Sikkim
         </h1>
       </section>
@@ -123,7 +123,7 @@ export default function Monasteries() {
               className={`flex flex-col md:flex-row items-center gap-8 ${
                 index % 2 === 1 ? "md:flex-row-reverse" : ""
               }`}
-            >
+            data-aos="fade-up">
               {/* Image */}
               <img
                 src={item.image}

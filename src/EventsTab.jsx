@@ -51,7 +51,7 @@ export default function EventsTab() {
               <div
                 key={`${event.event_id}-${event.monastery || "general"}`}
                 className="bg-white shadow-md rounded-2xl p-4 border-l-4 border-orange-600 hover:shadow-lg transition"
-              >
+                data-aos="fade-up">
                 <div className="flex justify-between items-center">
                   <h3 className="font-medium text-lg">{event.name}</h3>
                   <span className="text-sm bg-orange-100 text-orange-700 px-2 py-1 rounded-lg">
