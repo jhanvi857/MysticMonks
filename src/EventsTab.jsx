@@ -11,7 +11,6 @@ export default function EventsTab() {
       .catch((err) => console.error("Error fetching events", err));
   }, []);
 
-  // Format DB date into readable format
   const formatDate = (dateString) => {
     if (!dateString) return "N/A";
     const options = { year: "numeric", month: "long", day: "numeric" };

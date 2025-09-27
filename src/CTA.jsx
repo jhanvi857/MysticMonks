@@ -86,11 +86,18 @@ export default function CTA() {
             Explore Monasteries
             </Link>
             <Link
+              to="/"
+              className="px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-black font-semibold rounded-full shadow-lg transition transform hover:scale-105"
+            >
+              Explore Digital Archives
+            </Link>
+            <Link
               to="/events"
               className="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-full shadow-lg transition transform hover:scale-105"
             >
               View Events
             </Link>
+            
           </div>
         </div>
       </section>

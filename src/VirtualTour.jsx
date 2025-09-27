@@ -39,7 +39,6 @@ function PanoramaViewer() {
 
   const [selectedMonastery, setSelectedMonastery] = useState(null);
 
-  // Set monastery if `name` is in URL
   useEffect(() => {
     if (decodedName) {
       const monastery = monasteriesData.find((m) => m.name === decodedName);
@@ -87,7 +86,7 @@ function PanoramaViewer() {
       )}
 
       {selectedMonastery ? (
-        <div id="panorama" style={{ width: '800px', height: '500px' }}></div>
+        <div id="panorama" style={{ width: '1200px', height: '600px' }}></div>
       ) : (
         decodedName && <p className="text-gray-600">Monastery not found</p>
       )}

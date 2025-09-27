@@ -106,7 +106,6 @@ export default function HotelsPage() {
         },
       ],
     },
-    // 👉 Continue similarly for Chawayng Ani, Serdup Choling, Ngadak, Durpin, Tingvong, Samdruptse...
   ];
 
   return (

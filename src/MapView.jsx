@@ -151,7 +151,7 @@ export default function MapView() {
   const [monasteries, setMonasteries] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/monasteries") 
+    fetch("https://mysticmonks.onrender.com/monasteries") 
       .then((res) => res.json())
       .then((data) => setMonasteries(data))
       .catch((err) => console.error("Error fetching monasteries:", err));
