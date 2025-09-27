@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import PanoramaViewer from "./VirtualTour";
 import pemayangste from "../public/pemayangste.png";
 import phensang from "../public/Phensong_monastery.jpg";
-import kartok from "../public/kartok-monastery.jpg";
+import kartok from "../public/Kartok-Monastery.jpg";
 import dolling from "../public/dolling-monastery.jpg";
 import serdup from "../public/Serdup Choling Monastery.jpg";
 import nagdak from "../public/Ngadak Thupten Shedup Dhargey Choeling Monastery.jpg";
