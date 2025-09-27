@@ -24,6 +24,7 @@ app.get("/monasteries/:id", async (req, res) => {
     res.status(500).json({ error: "DB error" });
   }
 });
+// libretranslate route..
 // app.post("/translate", async (req, res) => {
 //   const { text, targetLang } = req.body;
 
