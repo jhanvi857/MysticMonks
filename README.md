@@ -44,15 +44,15 @@ Global Learning – Supports researchers, students, and spiritual seekers worldw
 ---
 ### Tech Stack 🛠️ :
 
-Frontend: React.js / Next.js, Tailwind CSS
+Frontend: React.js , Tailwind CSS
 
 Backend: Node.js + Express.js
 
-Database: PostgreSQL / MongoDB
+Database: PostgreSQL 
 
-Maps & Geo: Mapbox / Google Maps API
+Maps & Geo: Leaflet.js
 
-Virtual Tours: Three.js / Pannellum.js
+Virtual Tours: Pannellum.js
 
 AI Features: 
 
@@ -66,7 +66,7 @@ Demo 📽️
 
 [@Jhanvi patel](https://github.com/jhanvi857) <br>
 [@Darshi prajapati ](https://github.com/darshi1707) <br>
-[@Divyesh sathwara ](https://github.com/username) <br>
+[@Divyesh sathwara ](https://github.com/Divyesh7s) <br>
 [@Ved chaudhary](https://github.com/VDChaudhary) <br>
 [@Sanket patel](https://github.com/SanketPatel2007) <br>
-[@Dhruv rathod ](https://github.com/username) <br>
+[@Dhruv rathod ](https://github.com/dhruv45396) <br>
