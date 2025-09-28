@@ -12,9 +12,7 @@ app.use(express.json());
 app.get("/monasteries", async (req, res) => {
 const { data, error } = await supabase
   .from("monastery") // lowercase
-  .select("*")
-  .eq("monastery_id", req.params.id)
-  .single();
+  .select("*");
   if (error) {
     console.error("Supabase error:", error.message);
     return res.status(500).json({ error: error.message });
