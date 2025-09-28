@@ -38,11 +38,14 @@ export default function MapView() {
   const [monasteries, setMonasteries] = useState([]);
 
   useEffect(() => {
-    fetch("https://mysticmonks.onrender.com/monasteries") 
-      .then((res) => res.json())
-      .then((data) => setMonasteries(data))
-      .catch((err) => console.error("Error fetching monasteries:", err));
-  }, []);
+  fetch("https://mysticmonks.onrender.com/monasteries")
+    .then((res) => res.json())
+    .then((data) => {
+      // console.log("Fetched monasteries:", data); 
+      setMonasteries(data);
+    })
+    .catch((err) => console.error("Error fetching monasteries:", err));
+}, []);
 
   const handleSearch = (e) => {
     e.preventDefault();

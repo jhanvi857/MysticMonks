@@ -10,16 +10,18 @@ app.use(express.json());
 
 // Get all monasteries..
 app.get("/monasteries", async (req, res) => {
-  const { data, error } = await supabase.from("Monastery").select("*");
+const { data, error } = await supabase
+  .from("monastery") // lowercase
+  .select("*")
+  .eq("monastery_id", req.params.id)
+  .single();
   if (error) {
-    console.error("Supabase error:", error);
-    return res.status(500).json([]); 
+    console.error("Supabase error:", error.message);
+    return res.status(500).json({ error: error.message });
   }
-  res.json(data || []); 
+  console.log("Fetched monasteries:", data);
+  res.json(data || []);
 });
-
-
-
 // Get monastery by ID..
 app.get("/monasteries/:id", async (req, res) => {
   try {
