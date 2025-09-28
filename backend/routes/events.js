@@ -11,8 +11,6 @@ router.get("/",async(req,res)=>{
   LEFT JOIN monastery m ON em.monastery_id = m.monastery_id
   ORDER BY e.start_date ASC NULLS LAST, e.event_id ASC;
 `);
-
-
     res.json(result.rows);
   } catch (err) {
     console.error(err);
