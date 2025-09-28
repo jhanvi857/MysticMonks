@@ -86,7 +86,7 @@ export default function CTA() {
             Explore Monasteries
             </Link>
             <Link
-              to="/"
+              to="/digital-archives"
               className="px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-black font-semibold rounded-full shadow-lg transition transform hover:scale-105"
             >
               Explore Digital Archives
