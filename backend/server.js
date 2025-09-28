@@ -10,15 +10,15 @@ app.use(express.json());
 
 // Get all monasteries..
 app.get("/monasteries", async (req, res) => {
-  try {
-    const { data, error } = await supabase.from("Monastery").select("*");
-    if (error) throw error;
-    res.json(data);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "Server error" });
+  const { data, error } = await supabase.from("Monastery").select("*");
+  if (error) {
+    console.error("Supabase error:", error);
+    return res.status(500).json([]); 
   }
+  res.json(data || []); 
 });
+
+
 
 // Get monastery by ID..
 app.get("/monasteries/:id", async (req, res) => {
