@@ -8,7 +8,7 @@ const events = require("./routes/events");
 app.use(cors());
 app.use(express.json());
 
-// Get all monasteries
+// Get all monasteries..
 app.get("/monasteries", async (req, res) => {
   try {
     const { data, error } = await supabase.from("Monastery").select("*");
@@ -20,7 +20,7 @@ app.get("/monasteries", async (req, res) => {
   }
 });
 
-// Get monastery by ID
+// Get monastery by ID..
 app.get("/monasteries/:id", async (req, res) => {
   try {
     const { data, error } = await supabase
@@ -36,7 +36,7 @@ app.get("/monasteries/:id", async (req, res) => {
   }
 });
 
-// Proxy PDF route (unchanged)
+// Proxy PDF route ..
 app.get("/proxy-pdf", async (req, res) => {
   const url = Array.isArray(req.query.url) ? req.query.url[0] : req.query.url;
 
