@@ -86,7 +86,7 @@ function PanoramaViewer() {
       )}
 
       {selectedMonastery ? (
-        <div id="panorama" style={{ width: '1200px', height: '600px' }}></div>
+        <div id="panorama" style={{ width: '1400px', height: '600px' }}></div>
       ) : (
         decodedName && <p className="text-gray-600">Monastery not found</p>
       )}

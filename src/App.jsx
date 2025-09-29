@@ -17,6 +17,7 @@ import HotelsPage from './HotelsPage';
 import TravelPlanner from './TravelPlanner';
 import PanoramaViewer from './VirtualTour';
 import DigitalArchives from './DigitalArchives';
+import AISearch from './AiSearch';
 function App() {
   useEffect(() => {
   AOS.init({
@@ -41,6 +42,7 @@ function App() {
             <Route path="/events" element={<EventsTab />} />
             <Route path="/hotels" element={<HotelsPage />} />
             <Route path="/digital-archives" element={<DigitalArchives />} />
+            <Route path="/ai-search" element={<AISearch />} />
             {/* <Route path="/signup" element={<Signup />} /> */}
           </Routes>
       {/* <CTA/>

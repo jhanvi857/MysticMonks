@@ -4,7 +4,7 @@ const cors = require("cors");
 const supabase = require("./db");
 const app = express();
 const events = require("./routes/events");
-
+const search = require("./routes/Search");
 app.use(cors());
 app.use(express.json());
 
@@ -68,5 +68,6 @@ app.get("/proxy-pdf", async (req, res) => {
 });
 
 app.use("/events", events);
+app.use("/ai-search",search);
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}...`));
