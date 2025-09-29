@@ -137,8 +137,8 @@ export default function DigitalArchives() {
   return (
     <div className="flex min-h-screen bg-gray-100 justify-between">
       {/* Sidebar */}
-      <aside className="w-64 bg-amber-400 shadow-md p-6 hidden md:block py-24">
-        <h2 className="text-2xl font-serif font-bold text-gray-800 mb-6">Sections</h2>
+      <aside className="w-64 bg-amber-400 shadow-md p-6 hidden md:block py-24 text-white">
+        <h2 className="text-2xl font-serif font-bold mb-6">Sections</h2>
         <ul className="space-y-3">
           {sections.map((sec) => (
             <li key={sec}>

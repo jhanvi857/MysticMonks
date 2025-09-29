@@ -12,7 +12,7 @@ export default function AISearch() {
   setLoading(true);
 
   try {
-    const res = await fetch("http://localhost:5000/ai-search", {
+    const res = await fetch("https://mysticmonks.onrender.com/ai-search", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ query }),
@@ -31,19 +31,19 @@ export default function AISearch() {
 };
 
   return (
-    <div className="flex min-h-screen bg-gray-50 pt-16">
+    <div className="flex min-h-screen bg-gray-50 py-16">
       {/* Sidebar */}
       <CategoriesSidebar />
 
       {/* Main Content */}
       <div className="flex-1 p-8">
-        <h1 className="text-3xl font-bold mb-6" data-aos="fade-down">AI powered Search</h1>
+        <h1 className="text-3xl font-bold mb-6">AI powered Search</h1>
         <SearchBar
           query={query}
           setQuery={setQuery}
           onSearch={handleSearch}
           loading={loading}
-         />
+        />
 
         <SearchResults results={results} />
       </div>
