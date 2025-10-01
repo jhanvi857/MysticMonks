@@ -5,6 +5,8 @@ const supabase = require("./db");
 const app = express();
 const events = require("./routes/events");
 const search = require("./routes/Search");
+const { Readable } = require("stream");
+
 app.use(cors());
 app.use(express.json());
 
@@ -80,30 +82,26 @@ app.get("/proxy-pdf", async (req, res) => {
       method: "GET",
       headers: {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
-        "Accept": "application/pdf,application/octet-stream;q=0.9,*/*;q=0.8",
-        "Accept-Language": "en-US,en;q=0.9",
-        "Referer": "https://dspace.cus.ac.in/", 
+        "Accept": "application/pdf",
+        "Referer": "https://dspace.cus.ac.in/",
       },
-      redirect: "follow", 
+      redirect: "follow",
     });
 
     console.log("Upstream status:", response.status, response.statusText);
 
     if (!response.ok) {
-      return res
-        .status(response.status)
-        .send(`Failed to fetch PDF: ${response.statusText}`);
+      return res.status(response.status).send(`Failed to fetch PDF: ${response.statusText}`);
     }
 
     res.setHeader("Content-Type", response.headers.get("content-type") || "application/pdf");
     if (response.headers.get("content-length")) {
       res.setHeader("Content-Length", response.headers.get("content-length"));
     }
-    if (response.headers.get("content-disposition")) {
-      res.setHeader("Content-Disposition", response.headers.get("content-disposition"));
-    }
 
-    response.body.pipe(res);
+    // Use correct Readable stream
+    const nodeStream = Readable.from(response.body);
+    nodeStream.pipe(res);
 
   } catch (err) {
     console.error("Proxy error:", err);
