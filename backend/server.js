@@ -74,18 +74,27 @@ app.get("/proxy-pdf", async (req, res) => {
   }
 
   try {
+    console.log("Fetching PDF from:", url);
+
     const response = await fetch(url, {
+      method: "GET",
       headers: {
-        "User-Agent": "Mozilla/5.0 (compatible; PDFProxy/1.0)",
-        "Accept": "application/pdf",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+        "Accept": "application/pdf,application/octet-stream;q=0.9,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.9",
+        "Referer": "https://dspace.cus.ac.in/", 
       },
+      redirect: "follow", 
     });
 
+    console.log("Upstream status:", response.status, response.statusText);
+
     if (!response.ok) {
-      return res.status(response.status).send("Failed to fetch PDF");
+      return res
+        .status(response.status)
+        .send(`Failed to fetch PDF: ${response.statusText}`);
     }
 
-    // Forward important headers from the original response
     res.setHeader("Content-Type", response.headers.get("content-type") || "application/pdf");
     if (response.headers.get("content-length")) {
       res.setHeader("Content-Length", response.headers.get("content-length"));
@@ -94,7 +103,6 @@ app.get("/proxy-pdf", async (req, res) => {
       res.setHeader("Content-Disposition", response.headers.get("content-disposition"));
     }
 
-    // Stream directly without buffering in memory
     response.body.pipe(res);
 
   } catch (err) {
@@ -102,6 +110,7 @@ app.get("/proxy-pdf", async (req, res) => {
     res.status(500).send("Server error fetching PDF");
   }
 });
+
 app.use("/events", events);
 app.use("/ai-search",search);
 const PORT = process.env.PORT || 5000;
