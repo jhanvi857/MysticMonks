@@ -85,6 +85,7 @@
 import { Calendar as CalendarIcon, Clock } from "lucide-react";
 import { useEffect, useState } from "react";
 import Calendar from "react-calendar";
+import { Link } from "react-router-dom";
 import "react-calendar/dist/Calendar.css"; // import default styles
 
 export default function EventsTab() {
@@ -157,7 +158,7 @@ export default function EventsTab() {
       </aside>
 
       {/* Main Events Section */}
-      <main className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 space-y-6 space-x-4">
+      <main className="grid grid-cols-1 xl:grid-cols-2 space-y-6 space-x-4">
         {filteredEvents.length === 0 ? (
           <p className="text-gray-500 text-center">No events on this date.</p>
         ) : (
@@ -176,6 +177,7 @@ export default function EventsTab() {
                 {event.monastery || "General Event"}
               </p>
               <p className="text-gray-500 text-sm mt-2">{event.description || "No description available"}</p>
+              <div className="flex justify-between">
               <a
                 href={getGoogleCalendarLink(event)}
                 target="_blank"
@@ -184,6 +186,14 @@ export default function EventsTab() {
               >
                 <CalendarIcon size={16} /> Add to calendar
               </a>
+              <Link
+                to={"/event-booking"} 
+                state={{ event }}
+                className="mt-3 inline-flex px-4 py-2 bg-orange-600 text-white rounded-xl hover:bg-orange-700 items-center gap-2"
+              >
+                <CalendarIcon size={16} /> Participate
+              </Link>
+              </div>
             </div>
           ))
         )}

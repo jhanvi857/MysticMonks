@@ -37,6 +37,35 @@ app.get("/monasteries/:id", async (req, res) => {
 });
 
 // Proxy PDF route ..
+// app.get("/proxy-pdf", async (req, res) => {
+//   const url = Array.isArray(req.query.url) ? req.query.url[0] : req.query.url;
+
+//   if (!url || typeof url !== "string") {
+//     return res.status(400).send("Missing or invalid PDF URL");
+//   }
+
+//   try {
+//     const response = await fetch(url, {
+//       headers: {
+//         "User-Agent": "Mozilla/5.0 (compatible; PDFProxy/1.0)",
+//         "Accept": "application/pdf",
+//       },
+//     });
+
+//     if (!response.ok) {
+//       return res.status(response.status).send("Failed to fetch PDF");
+//     }
+
+//     const arrayBuffer = await response.arrayBuffer();
+//     const buffer = Buffer.from(arrayBuffer);
+
+//     res.setHeader("Content-Type", "application/pdf");
+//     res.send(buffer);
+//   } catch (err) {
+//     console.error("Proxy error:", err);
+//     res.status(500).send("Server error fetching PDF");
+//   }
+// });
 app.get("/proxy-pdf", async (req, res) => {
   const url = Array.isArray(req.query.url) ? req.query.url[0] : req.query.url;
 
@@ -56,17 +85,23 @@ app.get("/proxy-pdf", async (req, res) => {
       return res.status(response.status).send("Failed to fetch PDF");
     }
 
-    const arrayBuffer = await response.arrayBuffer();
-    const buffer = Buffer.from(arrayBuffer);
+    // Forward important headers from the original response
+    res.setHeader("Content-Type", response.headers.get("content-type") || "application/pdf");
+    if (response.headers.get("content-length")) {
+      res.setHeader("Content-Length", response.headers.get("content-length"));
+    }
+    if (response.headers.get("content-disposition")) {
+      res.setHeader("Content-Disposition", response.headers.get("content-disposition"));
+    }
 
-    res.setHeader("Content-Type", "application/pdf");
-    res.send(buffer);
+    // Stream directly without buffering in memory
+    response.body.pipe(res);
+
   } catch (err) {
     console.error("Proxy error:", err);
     res.status(500).send("Server error fetching PDF");
   }
 });
-
 app.use("/events", events);
 app.use("/ai-search",search);
 const PORT = process.env.PORT || 5000;

@@ -114,12 +114,7 @@ export default function CTA() {
               className="mt-8 flex flex-wrap justify-center gap-4"
               data-aos="fade-up"
             >
-              <Link
-                to="/ai-search"
-                className="px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-black font-semibold rounded-full shadow-lg transition transform hover:scale-105"
-              >
-                Try AI-Powered Search
-              </Link>
+              
               <Link
                 to="/tour"
                 className="px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-black font-semibold rounded-full shadow-lg transition transform hover:scale-105"
@@ -132,6 +127,13 @@ export default function CTA() {
               >
                 Explore through Map
               </Link>
+              <Link
+                to="/ai-search"
+                className="px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-black font-semibold rounded-full shadow-lg transition transform hover:scale-105"
+              >
+                Try AI-Powered Search
+              </Link>
+              
               <Link
                 to="/monasteries"
                 className="px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-black font-semibold rounded-full shadow-lg transition transform hover:scale-105"

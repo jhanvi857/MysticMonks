@@ -204,7 +204,7 @@ export default function DigitalArchives() {
             <h2 className="text-lg font-semibold mb-3 text-gray-700 px-6">Preview</h2>
             <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js">
             <Viewer
-              fileUrl={`http://localhost:5000/proxy-pdf?url=${encodeURIComponent(
+              fileUrl={`https://mysticmonks.onrender.com/proxy-pdf?url=${encodeURIComponent(
                 selectedDoc
               )}`}
               plugins={[defaultLayoutPluginInstance]}
